@@ -25,14 +25,14 @@
         <li><a href="javascript:loadwindow($('#instructions').html(),550,500,'How To')" onclick="checkDemo();">How To</a></li>
         <li><a href="javascript:loadwindow($('#sample').html(),450,200,'Sample')" onclick="checkDemo();">Sample</a></li>
         <li><a href="javascript:loadwindow(compiledbinary,450,300,'Compiled Binary')" onclick="checkDemo();">Binary&nbsp;&nbsp;</a></li>
-        <li><a href="javascript:loadwindow($('#about').html(),320,300,'About')" onclick="checkDemo();">About</a></li>
+        <li><a href="javascript:loadwindow($('#about').html(),320,320,'About')" onclick="checkDemo();">About</a></li>
     </ul>
     </div><br/>
     <div id="compiledprogram"></div>
     <canvas id="myCanvas" width="420px" height="300px"></canvas><br/>
     <input type="text" placeholder="Enter Instructions" id="program" onclick="checkDemo()" style="width:415px;font-size:12px">
   	<input type="button" value="Draw" onclick="translatecode(document.getElementById('program').value)" />
-    <input type="button" value="Reset" onclick="resetMT())" /><br/>
+    <input type="button" value="Reset" onclick="init()" /><br/>
     </div>
     <div id="copyright" style="text-align:center;margin-top:5px;">Copyright &copy; 2013 Renne Castro. All rights reserved.</div>
     </div>
@@ -42,7 +42,7 @@
 <br/><img src="title.png" alt="" height="33px"><br/><br/>
 <strong>Machine Turtle</strong> is a spinoff of the classic programming language LOGO which was used in the early 1960's to introduce programming to young students.  Machine Turtle differs primarily in the way the isntruction are entered, which is binary.  The goal is to expose students machine language in the context of programming a turtle.<br/><br/>
 <i>Repository</i><br/>
-https://github.com/rcastro2/machineTurtle<br/>
+https://github.com/rcastro2/machineTurtle<br/><br/>
 <hr/>
 <div id="copyright">Copyright &copy; 2013 Renne Castro. All rights reserved.</div>
 </div>

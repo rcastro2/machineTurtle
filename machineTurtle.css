@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* CSS Document */
+
+      body {
+        margin: 0px;
+        padding: 0px;
+		background-color:# 06C;
+		font-family:"Comic Sans MS", cursive;
+      }  
+	  #compiledprogram{ 
+	  	padding-left:5px;width:100px;height:300px;font-size:14px;float:left;
+	  }
+	  #outerpanel{ width: 575px;}
+	  #outerpanel,#innerpanel{		
+		-moz-box-shadow:inset rgb(100,100,100) -5px -5px 5px, inset rgb(200,200,200) 5px 5px 5px;
+		-webkit-box-shadow:inset rgb(100,100,100) -5px -5px 5px, inset rgb(200,200,200) 5px 5px 5px;
+		box-shadow:inset rgb(100,100,100) -5px -5px 5px, inset rgb(200,200,200) 5px 5px 5px;
+	  	padding:20px;
+		-moz-border-radius:10px;
+		-webkit-border-radius:10px;
+		border-radius:10px;
+		background-color:white;
+	  }
+	  #compiledprogram {
+		background-color:black;
+		color:white;
+	  	border:thin #000 solid;
+		-moz-border-radius-topleft:10px;
+		-webkit-border-top-left-radius:10px;
+		border-top-left-radius:10px;
+		-moz-border-radius-bottomleft:10px;
+		-webkit-border-bottom-left-radius:10px;
+		border-bottom-left-radius:10px;		  
+	  }
+	  #myCanvas{
+        border: 1px solid #9C9898;
+		-moz-border-radius-topright:10px;
+		-webkit-border-top-right-radius:10px;
+		border-top-right-radius:10px;
+		-moz-border-radius-bottomright10px;
+		-webkit-border-bottom-right-radius:10px;
+		border-bottom-right-radius:10px;
+	  }
+
+ul
+{
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+font-size:16px;
+}
+li
+{
+float:left;
+}
+#menu a:link, #menu a:visited
+{
+display:block;
+width:120px;
+font-weight:bold;
+color:#000000;
+background-color:#ffffff;
+text-align:center;
+padding:4px;
+text-decoration:none;
+text-transform:uppercase;
+}
+#menu a:hover, #menu a:active
+{
+color:#1695ff;
+text-shadow:#aaa 3px 3px 4px;
+}
+	.ui-dialog-title {  font-size:14px !important;}
+	#dialog{font-size:12px;}
+	#dialog a{ cursor:pointer;font-weight:bold;	}
+	#instructions,#about,#sample{visibility:hidden;display:none;}

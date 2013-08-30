@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="machineTurtle.css">
+  <link href="css/start/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+  <script src="js/jquery-1.9.1.js"></script>
+  <script src="js/jquery-ui-1.10.3.custom.js"></script>
+  <script src="machineTurtle.js"></script>
+    </head>
+  <body onload="init()" background="zertxtr3.gif">
+    <script type="text/javascript">
+	$(function() {
+		$( "#dialog" ).dialog({
+			autoOpen: false,
+			width: 500
+		});
+	})
+  </script>
+  	<div id="outerpanel" style="margin:10px auto;">
+  	<img src="title.png" alt=""><br/>
+    <div id="innerpanel">
+    <div id="menu">
+    <ul>
+        <li><a href="javascript:loadwindow(compiledbinary,450,300,'Compiled Binary')">Binary&nbsp;&nbsp;</a></li>
+        <li><a href="javascript:loadwindow($('#instructions').html(),550,500,'Instructions')">Instruction</a></li>
+        <li><a href="javascript:loadwindow($('#sample').html(),450,200,'Sample')">Sample</a></li>
+        <li><a href="javascript:loadwindow($('#about').html(),300,300,'About')">About</a></li>
+    </ul>
+    </div><br/>
+    <div id="compiledprogram"></div>
+    <canvas id="myCanvas" width="420px" height="300px"></canvas><br/>
+    <input type="text" placeholder="Enter Instructions" id="program" style="width:415px;font-size:12px">
+  	<input type="button" value="Draw" onclick="translatecode(document.getElementById('program').value)" />
+    <input type="button" value="Reset" onclick="init()" /><br/>
+    </div>
+    <br/>
+    </div>
+    <!-- ui-dialog -->
+<div id="dialog" title=""></div>
+<div id="about">
+<br/><img src="title.png" alt="" height="33px"><br/><br/>
+<strong>Machine Turtle</strong> is a spinoff of the classic programming language LOGO which was used in the early 1960's to introduce programming to young students.  Machine Turtle differs primarily in the way the isntruction are entered, which is binary.  The goal is to expose students machine language in the context of programming a turtle.<br/><br/>
+</div>
+<div id="sample">
+Enter each line separately.<br/><br/>
+011001110110111100100000001100010011000000110000<br/>
+011100100111010000100000001100010011001000110000<br/>
+011001110110111100100000001100010011000000110000<br/>
+011100100111010000100000001100010011001000110000<br/>
+011001110110111100100000001100010011000000110000<br/><br/>
+
+What shape was created?
+</div>
+<div id="instructions">
+  <p><strong>Machine Turtle</strong> has basic commands to move a turtle around the screen as well as change how and when it draws.  Instructions must be enter in binary.  <br/><br/> 
+    <i>Example</i>
+  <br/>
+  go 100 - Moves turtle forward the specified distance. In order to enter this command you must translate each character to its equivalent binary representation as demonstrated below: <br /><br/>
+  g is 01100111<br />
+  o is 01101111<br />
+  All instructions require a space between the command and its parameter. space is 00100000.<br />
+  1 is 00110001<br />
+  0 is 00110000<br />
+  0 is 00110000<br /><br />
+  
+  The complete instruction looks as follows:<br />
+  011001110110111100100000001100010011000000110000<br />
+  Try it!<br/><br/>
+  <i>Command List</i><br/>
+rt 90 - Turns turtle right 90 degrees.  Degrees range from 0 to 359.<br/>
+lt 90 - Turns turtle left 90 degrees. Degrees range from 0 to 359.<br/>
+to 50 20 - Moves turtle to a specific coordinate x and y. <br/>
+wd 5 - Changes the width of pen that the turtle uses to draw.<br/>
+cr red - Changes the color of the pen the turtle uses to draw.<br/>
+up - Lifts the pen so the turtle can move without drawing.<br/>
+dn - Drops the pen so the turtle draws as it moves.<br/>
+  <br/>
+  Make sure to view the <a onclick="loadwindow($('#sample').html(),450,250,'Sample')">sample</a> for a complete design.
+  </p>
+</div>
+  </body>
+</html>

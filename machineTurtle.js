@@ -21,12 +21,10 @@
 	["011001110110111100100000001100010011000000110000","011100100111010000100000001100010011001000110000","011001110110111100100000001100010011000000110000","011100100111010000100000001100010011001000110000","011001110110111100100000001100010011000000110000",""],
 	["011001110110111100100000001100010011000000110000","0111010001101111001000000011010100110000001000000011010100110000","0111001001110100001000000011100100110000","011001110110111100100000001100010011000000110000",""]
 	]
-	var viewDemo, stopDemo, posD, t, currentDemo = 0;
-	function resetMT(){
-		compiledbinary = "";
-		$("#compiledprogram").html(""); $("#program").val("");
-		context.clearRect(0, 0, canvas.width, canvas.height);	
-		posD=0; cx = 210; cy = 150; heading = 0;
+	var viewDemo = true, stopDemo=false, posD, t, currentDemo = 0;
+	function resetDemo(){
+		viewDemo = true; stopDemo=false;
+		init();runDemo();
 	}
 	function runDemo(){
 		if(viewDemo){
@@ -36,24 +34,25 @@
 			posD++;
 			if(posD == demo[currentDemo].length){ 
 				currentDemo = Math.floor((Math.random() * demo.length));
-				resetMT();
+				init();
 			}
-			t=setTimeout(function(){runDemo()},1000)
-			
+			t=setTimeout(function(){runDemo()},1000)	
 		}
 		
 	}
 	function checkDemo(){
 		if(!stopDemo){
-			stopDemo = true; viewDemo = false;
-			resetMT();
+			stopDemo = true; viewDemo = false;clearTimeout(t);
+			init();
 		}
 	}
     var canvas;
     var context;
     var heading, pensize, pencolor,penup, cx, cy;
     function init(){
-		viewDemo = true; stopDemo=false; posD = 0;
+		compiledbinary = "";
+		$("#compiledprogram").html(""); $("#program").val("");
+	    posD = 0;
         canvas = document.getElementById('myCanvas');
         context = canvas.getContext('2d'); 
 	  	context.clearRect(0, 0, canvas.width, canvas.height);

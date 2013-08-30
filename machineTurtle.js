@@ -17,15 +17,43 @@
 	StringBuilder.prototype.toString = function ()	{
 		return this.strings.join("");
 	}
-	
+	var demo = ["011001110110111100100000001100010011000000110000","011100100111010000100000001100010011001000110000","011001110110111100100000001100010011000000110000","011100100111010000100000001100010011001000110000","011001110110111100100000001100010011000000110000","011001110110111100100000001100010011000000110000"]
+	var viewDemo, stopDemo, posD, t;
+	function restartDemo(){init();runDemo();}
+	function resetMT(){
+		compiledbinary = "";
+		$("#compiledprogram").html(""); $("#program").val("");
+		context.clearRect(0, 0, canvas.width, canvas.height);	
+		posD=0; cx = 210; cy = 150; heading = 0;
+	}
+	function runDemo(){
+		if(viewDemo){
+			context.fillText("Demo", 10, 20);
+			$("#program").val(demo[posD]);
+			translatecode(demo[posD]);
+			posD++;
+			t=setTimeout(function(){runDemo()},1000)
+			if(posD == 6) resetMT();
+		}
+		
+	}
+	function checkDemo(){
+		if(!stopDemo){
+			stopDemo = true; viewDemo = false;
+			resetMT();
+		}
+	}
     var canvas;
     var context;
     var heading, pensize, pencolor,penup, cx, cy;
     function init(){
+		viewDemo = true; stopDemo=false; posD = 0;
         canvas = document.getElementById('myCanvas');
         context = canvas.getContext('2d'); 
 	  	context.clearRect(0, 0, canvas.width, canvas.height);
 	  	heading = 0; pensize = 1; penup = false; pencolor = 'black'; cx = 210; cy = 150;  
+		context.fillStyle = "blue";
+  		context.font = "bold 16px Arial";
 	}
 	function myturn(deg){
 		rad = deg * Math.PI / 180;
@@ -63,8 +91,8 @@
 		else if( code.indexOf("to") != -1){
 			space1 = code.indexOf(" ")+1
 			space2 = code.indexOf(" ",space1)+1
-			angle = parseInt(code.substring(start))
-			myturn(angle)
+			cx = 210 + parseInt(code.substring(space1,space2))
+			cy = 150 - parseInt(code.substring(space2))
 		}
 		else if( code.indexOf("wd") != -1){
 			start = code.indexOf(" ")+1

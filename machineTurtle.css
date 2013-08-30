@@ -42,36 +42,37 @@
 		border-bottom-right-radius:10px;
 	  }
 
-ul
-{
-list-style-type:none;
-margin:0;
-padding:0;
-overflow:hidden;
-font-size:16px;
-}
-li
-{
-float:left;
-}
-#menu a:link, #menu a:visited
-{
-display:block;
-width:120px;
-font-weight:bold;
-color:#000000;
-background-color:#ffffff;
-text-align:center;
-padding:4px;
-text-decoration:none;
-text-transform:uppercase;
-}
-#menu a:hover, #menu a:active
-{
-color:#1695ff;
-text-shadow:#aaa 3px 3px 4px;
-}
+	ul
+	{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	font-size:16px;
+	}
+	li
+	{
+	float:left;
+	}
+	#menu a:link, #menu a:visited
+	{
+	display:block;
+	width:90px;
+	font-weight:bold;
+	color:#000000;
+	background-color:#ffffff;
+	text-align:center;
+	padding:4px;
+	text-decoration:none;
+	text-transform:uppercase;
+	}
+	#menu a:hover, #menu a:active
+	{
+	color:#1695ff;
+	text-shadow:#aaa 3px 3px 4px;
+	}
 	.ui-dialog-title {  font-size:14px !important;}
 	#dialog{font-size:12px;}
 	#dialog a{ cursor:pointer;font-weight:bold;	}
 	#instructions,#about,#sample{visibility:hidden;display:none;}
+	#copyright{font-style:italic;color:#666;font-size:10px}

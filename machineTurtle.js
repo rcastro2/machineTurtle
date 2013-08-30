@@ -122,7 +122,7 @@
 	function translatecode(binarycode){
 		var build = new StringBuilder(),c;
 		binarycode = binarycode.replace(/ /g,'');
-		compiledbinary += binarycode + "<br/>";
+		compiledbinary += binarycode + "\n";
 		while (binarycode.length > 0){
 			c = String.fromCharCode(parseInt(binarycode.substring(0,8).toString(),2))
 			build.append(c);
@@ -162,6 +162,20 @@
 			}			
 		}				
 	} 
+	function viewBinary(){
+		var build = "<br/>Binary instructions of programs may be copied from this area as well as pasted and ran.<br/><br/><textarea id='programlist'>" + compiledbinary + "</textarea><br/><input type='button' value='Run' onclick='runProgram()'>";
+		loadwindow(build,650,370,'Binary')	
+	}
+	function runProgram(){
+		var p = $("#programlist").val();
+		var pl = p.split('\n');
+		var n;
+		init();
+		$("#dialog").dialog("close");
+		for(n = 0; n < pl.length; n++){
+			translatecode(pl[n]);
+		}
+	}
 	function loadwindow(msg, w, h, t) {
             $('#dialog').html(msg); $('#dialog').dialog("option", "width", w); $('#dialog').dialog("option", "height", h);
             $('#dialog').dialog('option', 'title', t); $('#dialog').dialog('open');

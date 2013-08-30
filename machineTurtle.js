@@ -17,9 +17,11 @@
 	StringBuilder.prototype.toString = function ()	{
 		return this.strings.join("");
 	}
-	var demo = ["011001110110111100100000001100010011000000110000","011100100111010000100000001100010011001000110000","011001110110111100100000001100010011000000110000","011100100111010000100000001100010011001000110000","011001110110111100100000001100010011000000110000","011001110110111100100000001100010011000000110000"]
-	var viewDemo, stopDemo, posD, t;
-	function restartDemo(){init();runDemo();}
+	var demo = [
+	["011001110110111100100000001100010011000000110000","011100100111010000100000001100010011001000110000","011001110110111100100000001100010011000000110000","011100100111010000100000001100010011001000110000","011001110110111100100000001100010011000000110000",""],
+	["011001110110111100100000001100010011000000110000","0111010001101111001000000011010100110000001000000011010100110000","0111001001110100001000000011100100110000","011001110110111100100000001100010011000000110000",""]
+	]
+	var viewDemo, stopDemo, posD, t, currentDemo = 0;
 	function resetMT(){
 		compiledbinary = "";
 		$("#compiledprogram").html(""); $("#program").val("");
@@ -28,12 +30,16 @@
 	}
 	function runDemo(){
 		if(viewDemo){
-			context.fillText("Demo", 10, 20);
-			$("#program").val(demo[posD]);
-			translatecode(demo[posD]);
+			context.fillText("Demo: " + (currentDemo+1), 10, 20);
+			$("#program").val(demo[currentDemo][posD]);
+			translatecode(demo[currentDemo][posD]);
 			posD++;
+			if(posD == demo[currentDemo].length){ 
+				currentDemo = Math.floor((Math.random() * demo.length));
+				resetMT();
+			}
 			t=setTimeout(function(){runDemo()},1000)
-			if(posD == 6) resetMT();
+			
 		}
 		
 	}
